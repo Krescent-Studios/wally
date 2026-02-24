@@ -1,7 +1,13 @@
-
-
 services:
   wally-backend:
-    image: ghcr.io/Krescent-Studios/wally
+    image: ghcr.io/krescent-studios/wally
+    restart: always
+    env_file:
+      - .env
     ports:
       - "9002:8000"
+    networks:
+      - wally
+
+networks:
+  wally:
