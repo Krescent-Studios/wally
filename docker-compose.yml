@@ -2,8 +2,8 @@ services:
   wally-backend:
     image: ghcr.io/krescent-studios/wally
     restart: always
-    env_file:
-      - .env
+    environment:
+      - WALLY_AUTH_VALUE=${WALLY_AUTH_VALUE}
     ports:
       - "9002:8000"
     networks:
