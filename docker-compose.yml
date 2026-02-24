@@ -7,7 +7,19 @@ services:
     ports:
       - "9002:8000"
     networks:
-      - wally
+      - traefik
+    labels:
+      - traefik.enable=true
+
+      # Router
+      - traefik.http.routers.wally.rule=Host(`wally.pathos.gg`)
+      #- traefik.http.routers.wally.entrypoints=websecure
+      #- traefik.http.routers.wally.tls=true
+      #- traefik.http.routers.wally.tls.certresolver=letsencrypt
+
+      # Service
+      - traefik.http.services.wally.loadbalancer.server.port=8080
 
 networks:
-  wally:
+  traefik:
+    external: true
