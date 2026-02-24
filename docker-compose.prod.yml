@@ -1,0 +1,7 @@
+
+
+services:
+  wally-backend:
+    image: ghcr.io/Krescent-Studios/wally
+    ports:
+      - "9002:8000"
