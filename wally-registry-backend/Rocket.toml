@@ -5,7 +5,7 @@
 address = "0.0.0.0"
 port = 8000
 index_url = "https://github.com/Krescent-Studios/wally-index"
-auth = { type = "api-key" }
+auth = { type = "api-key", value = "this-should-be-changed" }
 storage = { type = "local" }
 
 [debug]

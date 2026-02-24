@@ -1,6 +1,8 @@
 services:
   wally-backend:
-    image: ghcr.io/krescent-studios/wally
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     environment:
       - WALLY_auth=${WALLY_auth}
