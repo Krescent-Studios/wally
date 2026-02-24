@@ -18,7 +18,7 @@ services:
       #- traefik.http.routers.wally.tls.certresolver=letsencrypt
 
       # Service
-      - traefik.http.services.wally.loadbalancer.server.port=8080
+      - traefik.http.services.wally.loadbalancer.server.port=9002
 
 networks:
   traefik:
