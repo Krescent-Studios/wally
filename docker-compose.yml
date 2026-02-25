@@ -8,17 +8,13 @@ services:
       - "9002:8000"
     networks:
       - traefik
-    labels:
-      - traefik.enable=true
+    deploy:
+      labels:
+        traefik.enable: "true"
+        traefik.http.routers.authentik.rule: "Host(`wally.pathos.gg`)"
+        traefik.http.middlewares.authentik-headers.headers.customrequestheaders.X-Forwarded-Proto: "https"
+        traefik.http.services.authentik.loadbalancer.server.port: 9002
 
-      # Router
-      - traefik.http.routers.wally.rule=Host(`wally.pathos.gg`)
-      #- traefik.http.routers.wally.entrypoints=websecure
-      #- traefik.http.routers.wally.tls=true
-      #- traefik.http.routers.wally.tls.certresolver=letsencrypt
-
-      # Service
-      - traefik.http.services.wally.loadbalancer.server.port=9002
 
 networks:
   traefik:
