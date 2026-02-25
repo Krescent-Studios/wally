@@ -1,11 +1,8 @@
 services:
-  wally-backend:
+  backend:
     image: ghcr.io/krescent-studios/wally
-    restart: always
     environment:
       - WALLY_auth=${WALLY_auth}
-    ports:
-      - "9002:8000"
     networks:
       - traefik
     deploy:
@@ -13,7 +10,6 @@ services:
         traefik.enable: "true"
         traefik.http.routers.wally.rule: "Host(`wally.pathos.gg`)"
         traefik.http.services.wally.loadbalancer.server.port: 8000
-
 
 networks:
   traefik:
