@@ -3,6 +3,7 @@ services:
     image: ghcr.io/krescent-studios/wally
     environment:
       - WALLY_auth=${WALLY_auth}
+      - WALLY_github_token=${WALLY_github_token}
     networks:
       - traefik
     deploy:
