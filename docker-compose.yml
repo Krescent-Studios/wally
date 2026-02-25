@@ -11,9 +11,8 @@ services:
     deploy:
       labels:
         traefik.enable: "true"
-        traefik.http.routers.authentik.rule: "Host(`wally.pathos.gg`)"
-        traefik.http.middlewares.authentik-headers.headers.customrequestheaders.X-Forwarded-Proto: "https"
-        traefik.http.services.authentik.loadbalancer.server.port: 9002
+        traefik.http.routers.wally.rule: "Host(`wally.pathos.gg`)"
+        traefik.http.services.wally.loadbalancer.server.port: 9002
 
 
 networks:
