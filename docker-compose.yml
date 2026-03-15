@@ -1,6 +1,6 @@
 services:
   backend:
-    image: ghcr.io/krescent-studios/wally
+    image: ghcr.io/pathos-iii-krescent/wally:latest
     environment:
       - WALLY_auth=${WALLY_auth}
       - WALLY_github_token=${WALLY_github_token}
