@@ -5,7 +5,7 @@ services:
       - WALLY_auth=${WALLY_auth}
       - WALLY_github_token=${WALLY_github_token}
     volumes:
-      - wally-volume:/app/packages
+      - packages:/app/packages
     networks:
       - traefik
     deploy:
@@ -19,4 +19,4 @@ networks:
     external: true
 
 volumes:
-  wally-volume:
+  packages:
