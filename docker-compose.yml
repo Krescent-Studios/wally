@@ -1,15 +1,15 @@
 services:
-  backend:
+  wally-backend:
     image: ghcr.io/pathos-iii-krescent/wally:latest
     environment:
       - WALLY_auth=${WALLY_auth}
       - WALLY_github_token=${WALLY_github_token}
+    volumes:
+      - wally-volume:/app
+    ports:
+      - "8000:8000"
     networks:
       - traefik
-    volumes:
-      - packages:/app/packages
-    entrypoint: >
-      sh -c "chown -R 1000:1000 /app/packages && exec /app/wally-server"
     deploy:
       labels:
         traefik.enable: "true"
@@ -21,4 +21,4 @@ networks:
     external: true
 
 volumes:
-  packages:
+  wally-volume:
