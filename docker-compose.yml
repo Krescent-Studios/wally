@@ -7,14 +7,14 @@ services:
     volumes:
       - wally-volume:/app
     ports:
-      - "8000:8000"
+      - "5125:8000"
     networks:
       - traefik
     deploy:
       labels:
         traefik.enable: "true"
         traefik.http.routers.wally.rule: "Host(`wally.pathos.gg`)"
-        traefik.http.services.wally.loadbalancer.server.port: 8000
+        traefik.http.services.wally.loadbalancer.server.port: 5125
 
 networks:
   traefik:
