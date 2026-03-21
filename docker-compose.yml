@@ -6,15 +6,13 @@ services:
       - WALLY_github_token=${WALLY_github_token}
     volumes:
       - wally-volume:/app
-    ports:
-      - "5125:8000"
     networks:
       - traefik
     deploy:
       labels:
         traefik.enable: "true"
         traefik.http.routers.wally.rule: "Host(`wally.pathos.gg`)"
-        traefik.http.services.wally.loadbalancer.server.port: 5125
+        traefik.http.services.wally.loadbalancer.server.port: 8000
 
 networks:
   traefik:
