@@ -8,6 +8,8 @@ services:
       - traefik
     volumes:
       - packages:/app/packages
+    entrypoint: >
+      sh -c "chown -R 1000:1000 /app/packages && exec /app/wally-server"
     deploy:
       labels:
         traefik.enable: "true"
